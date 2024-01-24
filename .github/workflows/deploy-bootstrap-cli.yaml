@@ -4,8 +4,15 @@ name: deploy-bootstrap-cli
 on:
     push:
         branches:
-            #- main
-            - none
+            - main
+            - environment: test
+              CDF_CLUSTER: westeurope-1
+              CDF_PROJECT: cdf-bootcamp-02-test
+              IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
+            - environment: prod
+              CDF_CLUSTER: westeurope-1
+              CDF_PROJECT: cdf-bootcamp-02-prod
+              IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
         paths:
             - config/bootstrap/**
             - .github/workflows/deploy-bootstrap-cli.yaml
